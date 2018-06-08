@@ -57,6 +57,7 @@ foreach( range(1, count($mahasiswa) ) as $index ) {
 
 $this->command->info('Berhasil menambah data Wali!');
 ```
+<<<<<<< HEAD
 - Cara menampilkan gunakan
 ```
 Route::get('relasi-1', function() {
@@ -67,6 +68,8 @@ Route::get('relasi-1', function() {
     return $mahasiswa->wali->nama;
 });
 ```
+=======
+>>>>>>> d5ed4e808c7bb355158ed7698644414fca02c95e
 
 ## Halaman Khusus berdasarkan level user (Admin dan User)
 Mengikuti tutorial [youtube](https://www.youtube.com/watch?v=FKEWlsNmkD0&t=4s)
