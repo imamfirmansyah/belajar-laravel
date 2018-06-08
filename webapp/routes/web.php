@@ -17,6 +17,15 @@ Route::get('/', function () {
 	return view('welcome');
 });
 
+Route::get('relasi-1', function() {
+	# Temukan mahasiswa dengan NIM 1015015072
+	$mahasiswa = App\Mahasiswa::where('nim', '=', '11760123')->first();
+
+	# Tampilkan nama wali mahasiswa
+	return $mahasiswa->wali->nama;
+
+});
+
 Route::group(['middleware' => ['web', 'auth']], function() {
 
 	Route::get('/home', function() {

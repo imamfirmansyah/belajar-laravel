@@ -20,7 +20,7 @@ class Mahasiswa extends Model
 	 * terhadap model 'Wali' sebagai 'id_mahasiswa'
 	 */
 	public function wali() {
-		return $this->hasOne('Wali', 'id_mahasiswa');
+		return $this->hasOne('App\Wali', 'id_mahasiswa');
 	}
 
 	# Relasi One-to-Many nanti disini...

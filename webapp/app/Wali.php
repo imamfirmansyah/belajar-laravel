@@ -20,6 +20,6 @@ class Wali extends Model
 	 * sebagai timbal balik terhadap model 'Mahasiswa'
 	 */
 	public function mahasiswa() {
-		return $this->belongsTo('Mahasiswa', 'id_mahasiswa');
+		return $this->belongsTo('App\Mahasiswa', 'id_mahasiswa');
 	}
 }
