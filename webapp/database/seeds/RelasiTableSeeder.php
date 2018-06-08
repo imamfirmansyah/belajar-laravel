@@ -17,12 +17,27 @@ class RelasiTableSeeder extends Seeder
 
         $faker = \Faker\Factory::create();
 
+        /* data dosen */
+        foreach(range(1,3) as $index) {
+            DB::table('dosen')
+                ->insert([
+                    'nama' => $faker->name,
+                    'nipd' => $faker->randomNumber(8),
+                    'created_at' => \Carbon\Carbon::now(),
+                ]);
+        }
+
+        $this->command->info('Berhasil menambah data dosen!');
+
         /* data mahasiswa */
+        $dosen = App\Dosen::pluck('id')->toArray();
+
         foreach(range(1,10) as $index) {
             DB::table('mahasiswa')
                 ->insert([
                     'nama' => $faker->name,
                     'nim' => $faker->randomNumber(8),
+                    'id_dosen' => $faker->randomElement($dosen),
                     'created_at' => \Carbon\Carbon::now(),
                 ]);
         }

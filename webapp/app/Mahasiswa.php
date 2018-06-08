@@ -11,7 +11,7 @@ class Mahasiswa extends Model
 
 	# MASS ASSIGNMENT
 	# Untuk membatasi attribut yang boleh di isi (Untuk keamanan)
-	protected $fillable = array('nama', 'nim');
+	protected $fillable = array('nama', 'nim', 'id_dosen');
 
 	/*
 	 * Relasi One-to-One
@@ -23,7 +23,17 @@ class Mahasiswa extends Model
 		return $this->hasOne('App\Wali', 'id_mahasiswa');
 	}
 
-	# Relasi One-to-Many nanti disini...
+	/*
+	 * Relasi One-to-Many
+	 * =================
+	 * Buat function bernama dosen(), dimana model 'Mahasiswa' memiliki 
+	 * relasi One-to-Many (belongsTo) sebagai penerima 'id_dosen'
+	 */
+	public function dosen() {
+		return $this->belongsTo('App\Dosen', 'id_dosen');
+	}
+
+	# Relasi Many-to-Many nanti disini...
 
 	# Relasi Many-to-Many nanti disini...
 }
