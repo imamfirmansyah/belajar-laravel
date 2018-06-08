@@ -57,14 +57,26 @@ foreach( range(1, count($mahasiswa) ) as $index ) {
 
 $this->command->info('Berhasil menambah data Wali!');
 ```
-- Cara menampilkan gunakan
+- Cara menampilkan relasi one to one
 ```
-Route::get('relasi-1', function() {
+Route::get('relasi-one-to-one', function() {
     # Temukan mahasiswa dengan NIM 1015015072
     $mahasiswa = App\Mahasiswa::where('nim', '=', '11760123')->first();
 
     # Tampilkan nama wali mahasiswa
     return $mahasiswa->wali->nama;
+});
+```
+- Cara menampilkan relasi one to many
+```
+Route::get('relasi-one-to-many', function() {
+
+    # Temukan dosen dengan yang bernama Elizabeth Fay
+    $dosen = App\Dosen::where('nipd', '=', '49582134')->first();
+
+    # Tampilkan seluruh data mahasiswa didikannya
+    foreach ($dosen->mahasiswa as $temp)
+        echo '<li> Nama : ' . $temp->nama . ' <strong>' . $temp->nim . '</strong></li>';
 });
 ```
 

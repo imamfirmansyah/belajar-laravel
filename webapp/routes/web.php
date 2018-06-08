@@ -17,7 +17,7 @@ Route::get('/', function () {
 	return view('welcome');
 });
 
-Route::get('relasi-1', function() {
+Route::get('relasi-one-to-one', function() {
 	# Temukan mahasiswa dengan NIM 1015015072
 	$mahasiswa = App\Mahasiswa::where('nim', '=', '19300338')->first();
 
@@ -26,7 +26,7 @@ Route::get('relasi-1', function() {
 
 });
 
-Route::get('relasi-2', function() {
+Route::get('relasi-one-to-one-dosen', function() {
 
 	# Temukan mahasiswa dengan NIM 1015015072
 	$mahasiswa = App\Mahasiswa::where('nim', '=', '49891287')->first();
@@ -36,7 +36,7 @@ Route::get('relasi-2', function() {
 
 });
 
-Route::get('relasi-3', function() {
+Route::get('relasi-one-to-many', function() {
 
 	# Temukan dosen dengan yang bernama Elizabeth Fay
 	$dosen = App\Dosen::where('nipd', '=', '49582134')->first();
