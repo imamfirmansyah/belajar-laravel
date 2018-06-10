@@ -101,6 +101,16 @@ Route::get('relasi-one-to-many', function() {
         }
     }
 ```
+- Masalah drop table saat migration refresh diatas akhirnya solved dengan menambahkan `$table->dropForeign('mahasiswa_id_dosen_foreign');` di bagian seeder function `down()`
+```
+public function down()
+{
+    Schema::table('mahasiswa', function($table) {
+        $table->dropForeign('mahasiswa_id_dosen_foreign');
+        $table->dropColumn('id_dosen');
+    });
+}
+```
 
 ## Halaman Khusus berdasarkan level user (Admin dan User)
 Mengikuti tutorial [youtube](https://www.youtube.com/watch?v=FKEWlsNmkD0&t=4s)

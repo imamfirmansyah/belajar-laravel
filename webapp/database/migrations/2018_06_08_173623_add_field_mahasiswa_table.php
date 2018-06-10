@@ -26,6 +26,9 @@ class AddFieldMahasiswaTable extends Migration
      */
     public function down()
     {
-        $table->dropColumn('id_dosen');
+        Schema::table('mahasiswa', function($table) {
+            $table->dropForeign('mahasiswa_id_dosen_foreign');
+            $table->dropColumn('id_dosen');
+        });
     }
 }
