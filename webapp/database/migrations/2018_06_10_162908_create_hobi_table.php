@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddFieldMahasiswaTable extends Migration
+class CreateHobiTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class AddFieldMahasiswaTable extends Migration
      */
     public function up()
     {
-        Schema::table('mahasiswa', function($table) {
-            $table->unsignedInteger('id_dosen')->after('nim')->nullable();
-            $table->foreign('id_dosen')->references('id')->on('dosen')->onDelete('CASCADE');
+        Schema::create('hobi', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('hobi');
+            $table->timestamps();
         });
     }
 
@@ -26,6 +27,6 @@ class AddFieldMahasiswaTable extends Migration
      */
     public function down()
     {
-        $table->dropColumn('id_dosen');
+        Schema::dropIfExists('hobi');
     }
 }

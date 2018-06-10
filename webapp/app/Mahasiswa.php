@@ -33,7 +33,14 @@ class Mahasiswa extends Model
 		return $this->belongsTo('App\Dosen', 'id_dosen');
 	}
 
-	# Relasi Many-to-Many nanti disini...
-
-	# Relasi Many-to-Many nanti disini...
+	/*
+	 * Relasi Many-to-Many
+	 * ===================
+	 * Buat function bernama hobi(), dimana model 'Mahasiswa' memiliki relasi
+	 * Many-to-Many (belongsToMany) terhadap model 'Hobi' yang terhubung oleh
+	 * tabel 'mahasiswa_hobi' masing-masing sebagai 'id_mahasiswa' dan 'id_hobi' 
+	 */
+	public function hobi() {
+		return $this->belongsToMany('App\Hobi', 'mahasiswa_hobi', 'id_mahasiswa', 'id_hobi');
+	}
 }

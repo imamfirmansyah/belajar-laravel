@@ -79,6 +79,28 @@ Route::get('relasi-one-to-many', function() {
         echo '<li> Nama : ' . $temp->nama . ' <strong>' . $temp->nim . '</strong></li>';
 });
 ```
+- Cara menggunakan faker untuk attach relasi many to many, ini lumayan susah euy, hampir 3 jam ngulik, best practice nya pakai cara ini, tapi ini baru bisa insert data, misalkan mau menjalankan `php artisan migrate:refresh --seed` pasti error constraint karena data foreign key nya masih nyangkut di table relasi, masih perlu di cek dibagian ini:
+```
+# Hubungkan Mahasiswa dengan Hobinya masing-masing
+    $hobi = App\Hobi::pluck('id')->toArray();
+
+    for ($i = 0; $i < 40; ++$i) {
+        $id_mahasiswa = $faker->randomElement($mahasiswa);
+        $id_hobi = $faker->randomElement( $hobi );
+
+        $checkExist = DB::table('mahasiswa_hobi')
+            ->whereIdMahasiswa($id_mahasiswa)
+            ->whereIdHobi($id_hobi)
+            ->count() > 0;
+
+        if (!$checkExist) {
+            $mahasiswa_hobi = App\Mahasiswa::find( $id_mahasiswa );
+            $mahasiswa_hobi->hobi()->attach( $id_hobi );
+        } else {
+            $i--;  
+        }
+    }
+```
 
 ## Halaman Khusus berdasarkan level user (Admin dan User)
 Mengikuti tutorial [youtube](https://www.youtube.com/watch?v=FKEWlsNmkD0&t=4s)
