@@ -111,6 +111,22 @@ public function down()
     });
 }
 ```
+- Penambahan `belajar-relasi-table` untuk memudahkan preview dari masing-masing contoh Implementasi relasi table
+```
+Route::get('belajar-relasi-table', function() {
+    $html = '';
+
+    $html .= 
+        '<h2>Belajar Relasi Table</h2>
+        <ul>
+            <li><a href="relasi-one-to-one">Relasi One to One</a></li>
+            <li><a href="relasi-one-to-many">Relasi One to Many</a></li>
+            <li><a href="relasi-many-to-many">Relasi Many to Many</a></li>
+        </ul>';
+
+    return $html;
+});
+```
 
 ## Halaman Khusus berdasarkan level user (Admin dan User)
 Mengikuti tutorial [youtube](https://www.youtube.com/watch?v=FKEWlsNmkD0&t=4s)

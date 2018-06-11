@@ -72,7 +72,7 @@ class RelasiTableSeeder extends Seeder
         foreach(range(1,5) as $index) {
             DB::table('hobi')->insert(
                 [
-                    'hobi' => $faker->name,
+                    'hobi' => $faker->jobTitle,
                     'created_at' => \Carbon\Carbon::now(),
                 ]
             );
