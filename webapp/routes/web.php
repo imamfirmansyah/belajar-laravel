@@ -131,3 +131,5 @@ Route::group(['middleware' => ['web', 'auth']], function() {
 });
 
 Route::resource('employees', 'EmployeeController');
+
+Route::resource('relation-crud', 'RelationCrudController');

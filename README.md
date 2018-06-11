@@ -127,6 +127,7 @@ Route::get('belajar-relasi-table', function() {
     return $html;
 });
 ```
+- Bacaan untuk update relational table many to one atau many to many [Saving and Updating Laravel Relations](http://meigwilym.com/family-fortunes-saving-and-updating-laravel-relations/)
 
 ## Halaman Khusus berdasarkan level user (Admin dan User)
 Mengikuti tutorial [youtube](https://www.youtube.com/watch?v=FKEWlsNmkD0&t=4s)
