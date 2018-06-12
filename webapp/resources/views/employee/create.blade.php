@@ -9,6 +9,16 @@
 <body>
    <div class="container">
       <h2>Employee List</h2><br/>
+      @if ($errors->any())
+         <div class="alert alert-danger" role="alert">
+            <ul class="m-0">
+               @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+               @endforeach
+            </ul>
+         </div>
+      @endif
+
       <form method="post" action="{{url('employees')}}" enctype="multipart/form-data">
          @csrf
          <div class="row">

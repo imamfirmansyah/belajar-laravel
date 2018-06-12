@@ -37,6 +37,11 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         $employee = new Employee();
+
+        $request->validate([
+            'name' => 'required|max:190|min:5'
+        ]);
+
         $employee->name = $request->get('name');
         $employee->save();
 

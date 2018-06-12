@@ -3,8 +3,9 @@ Beberapa hal dalam framework laravel yang sedang saya pelajari, diantaranya expl
 - Instalasi Laravel ✅
 - Login ✅
 - Simple CRUD ✅
-- CRUD dengan Relational Table 
+- CRUD dengan Relational Table ✅
 - Halaman Khusus berdasarkan level user (Admin dan User) ✅
+- Form Validation ✅
 Mengikuti tutorial [youtube](https://www.youtube.com/watch?v=FKEWlsNmkD0&t=4s)
 
 ---
@@ -131,3 +132,7 @@ Route::get('belajar-relasi-table', function() {
 
 ## Halaman Khusus berdasarkan level user (Admin dan User)
 Mengikuti tutorial [youtube](https://www.youtube.com/watch?v=FKEWlsNmkD0&t=4s)
+
+## Form Validation
+- Mengikuti tutorial dari Laracasts [Form Validation 101](https://laracasts.com/series/laravel-from-scratch-2017/episodes/12)
+- Dokumentasi [Laravel validation](https://laravel.com/docs/5.6/validation)
